@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Список контактов</title>
+
+    <script type="module" src="/src/main.js"></script>
+  </head>
+  <body>
+    <h1>Добавить контакт</h1>
+    <div class="send-contact">
+      <form id="contactForm">
+        <input type="text" id="name" placeholder="Имя" required />
+        <div id="nameError" class="error"></div>
+        <input type="text" id="vacancy" placeholder="Вакансия" required />
+        <div id="vacancyError" class="error"></div>
+        <input type="text" id="phone" placeholder="Телефон" required />
+        <div id="phoneError" class="error"></div>
+        <button type="submit">Добавить</button>
+      </form>
+    </div>
+    <div class="button-search">
+      <button id="searchButton">Поиск контакта</button>
+    </div>
+    <div class="button-delete">
+      <button id="deleteAll">Удалить все контакты</button>
+    </div>
+
+    <div>
+      Новые контакты добавляются и сортируются в соотвествии с алфавитом
+      <div class="alphabet" id="alphabet"></div>
+    </div>
+    <div id="contactList"></div>
+
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Поиск контакта</h2>
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Введите имя или телефон"
+        />
+        <div id="searchResults"></div>
+      </div>
+    </div>
+  </body>
+</html>
