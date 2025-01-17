@@ -25,7 +25,7 @@ input {
   text-align: center;
 }
 .button-delete {
-  margin-top: 25px;
+  margin: 25px;
   text-align: right;
 }
 
@@ -89,4 +89,8 @@ button {
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+
+.hidden {
+  display: none;
 }

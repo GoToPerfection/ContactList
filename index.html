@@ -5,8 +5,6 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Список контактов</title>
-
-    <script type="module" src="/src/main.js"></script>
   </head>
   <body>
     <h1>Добавить контакт</h1>
@@ -29,14 +27,14 @@
     </div>
 
     <div>
-      Новые контакты добавляются и сортируются в соотвествии с алфавитом
+      Новые контакты добавляются и сортируются в соотвествии с алфавитом А-Я
       <div class="alphabet" id="alphabet"></div>
     </div>
     <div id="contactList"></div>
 
     <div id="myModal" class="modal">
       <div class="modal-content">
-        <span class="close">&times;</span>
+        <span id="close" class="close">&times;</span>
         <h2>Поиск контакта</h2>
         <input
           type="text"
@@ -46,5 +44,7 @@
         <div id="searchResults"></div>
       </div>
     </div>
+
+    <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
