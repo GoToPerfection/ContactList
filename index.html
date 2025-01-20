@@ -2,49 +2,169 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Список контактов</title>
   </head>
   <body>
-    <h1>Добавить контакт</h1>
-    <div class="send-contact">
-      <form id="contactForm">
-        <input type="text" id="name" placeholder="Имя" required />
-        <div id="nameError" class="error"></div>
-        <input type="text" id="vacancy" placeholder="Вакансия" required />
-        <div id="vacancyError" class="error"></div>
-        <input type="text" id="phone" placeholder="Телефон" required />
-        <div id="phoneError" class="error"></div>
-        <button type="submit">Добавить</button>
-      </form>
-    </div>
-    <div class="button-search">
-      <button id="searchButton">Поиск контакта</button>
-    </div>
-    <div class="button-delete">
-      <button id="deleteAll">Удалить все контакты</button>
-    </div>
+    <main class="all-content">
+      <section class="add-contact" aria-labelledby="addContactTitle">
+        <div class="add-contact">
+          <div class="add-header">
+            <h1 id="addContactTitle">Добавить контакт</h1>
+          </div>
+          <div class="send-contact">
+            <form id="contactForm" aria-required="true" role="form">
+              <label for="name">
+                Имя:
+                <input
+                  type="text"
+                  id="name"
+                  placeholder="Введите имя"
+                  required
+                  aria-describedby="nameError"
+                  tabindex="1"
+                />
+              </label>
+              <div id="nameError" class="error" role="alert"></div>
 
-    <div>
-      Новые контакты добавляются и сортируются в соотвествии с алфавитом А-Я
-      <div class="alphabet" id="alphabet"></div>
-    </div>
-    <div id="contactList"></div>
+              <label for="vacancy">
+                Вакансия:
+                <input
+                  type="text"
+                  id="vacancy"
+                  placeholder="Введите вакансию"
+                  required
+                  aria-describedby="vacancyError"
+                  tabindex="2"
+                />
+              </label>
+              <div id="vacancyError" class="error" role="alert"></div>
 
-    <div id="myModal" class="modal">
-      <div class="modal-content">
-        <span id="close" class="close">&times;</span>
-        <h2>Поиск контакта</h2>
-        <input
-          type="text"
-          id="searchInput"
-          placeholder="Введите имя или телефон"
-        />
-        <div id="searchResults"></div>
-      </div>
-    </div>
+              <label for="phone">
+                Телефон:
+                <input
+                  type="text"
+                  id="phone"
+                  placeholder="Введите телефон"
+                  required
+                  aria-describedby="phoneError"
+                  tabindex="3"
+                />
+              </label>
+              <div id="phoneError" class="error" role="alert"></div>
 
-    <script type="module" src="/src/main.ts"></script>
+              <button type="submit" tabindex="4">Добавить</button>
+            </form>
+            <div class="description">
+              Новые контакты добавляются и сортируются в соотвествии с алфавитом
+              А-Я
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="search-edit-modal-buttons">
+        <div class="edit-madal-content">
+          <dialog
+            id="editModal"
+            aria-modal="true"
+            role="dialog"
+            aria-labelledby="editModalTitle"
+          >
+            <div class="modal-edit">
+              <span
+                class="close"
+                tabindex="0"
+                role="button"
+                aria-label="Закрыть"
+                >&times;</span
+              >
+              <h2 id="editModalTitle">Редактировать контакт</h2>
+              <label for="editName">
+                Имя:
+                <input
+                  type="text"
+                  id="editName"
+                  required
+                  aria-required="true"
+                />
+              </label>
+              <label for="editVacancy">
+                Вакансия:
+                <input
+                  type="text"
+                  id="editVacancy"
+                  required
+                  aria-required="true"
+                />
+              </label>
+              <label for="editPhone">
+                Телефон:
+                <input
+                  type="text"
+                  id="editPhone"
+                  required
+                  aria-required="true"
+                />
+              </label>
+              <button id="saveButton" tabindex="9">Сохранить</button>
+            </div>
+          </dialog>
+        </div>
+
+        <div class="button-search">
+          <button
+            id="searchButton"
+            type="button"
+            aria-haspopup="dialog"
+            aria-controls="myModal"
+            tabindex="5"
+          >
+            Поиск контакта
+          </button>
+          <div id="search-modal">
+            <dialog
+              class="modal"
+              id="myModal"
+              aria-modal="true"
+              role="dialog"
+              aria-labelledby="searchModalTitle"
+            >
+              <div class="modal-search">
+                <span
+                  id="closeSearch"
+                  tabindex="0"
+                  role="button"
+                  aria-label="Закрыть"
+                  >&times;</span
+                >
+                <h2 id="searchModalTitle">Поиск контакта</h2>
+                <input
+                  type="text"
+                  id="searchInput"
+                  placeholder="Введите имя или телефон"
+                  tabindex="0"
+                />
+                <div id="searchResults" role="alert"></div>
+              </div>
+            </dialog>
+          </div>
+        </div>
+      </section>
+
+      <section class="delete-button">
+        <div class="button-delete">
+          <button id="deleteAll" tabindex="6">Удалить все контакты</button>
+        </div>
+      </section>
+
+      <section class="display-list">
+        <div class="display-list">
+          <ul id="contactList" tabindex="7" role="list"></ul>
+        </div>
+      </section>
+
+      <script type="module" src="./src/main.ts" defer></script>
+    </main>
   </body>
 </html>

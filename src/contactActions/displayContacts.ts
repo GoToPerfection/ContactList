@@ -20,4 +20,6 @@ export function displayContacts(): void {
       showLetterDescription(letter, alphabetContacts[letter]);
     }
   });
+  contacts.sort((a, b) => a.name.localeCompare(b.name));
+  localStorage.setItem("contacts", JSON.stringify(contacts));
 }

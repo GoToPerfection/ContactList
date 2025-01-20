@@ -5,7 +5,7 @@ import { deleteContact } from "../contactActions/deleteContact";
 import { createActionButton } from "./createActionButton";
 
 export function showLetterDescription(letter: string, contacts: Contact[]): void {
-  const letterItem = document.createElement("div");
+  const letterItem = document.createElement("li");
   letterItem.className = "letter";
   letterItem.textContent = `${letter} (${contacts.length})`;
   letterItem.addEventListener("click", () => toggleContacts(letter));
@@ -16,7 +16,7 @@ export function showLetterDescription(letter: string, contacts: Contact[]): void
   contactDiv.style.display = "none";
 
   contacts.forEach((contact) => {
-    const li = document.createElement("div");
+    const li = document.createElement("li");
     li.textContent = `${contact.name} - ${contact.vacancy} - ${contact.phone}`;
     li.appendChild(
       createActionButton("Редактировать", () => openEditModal(contact))
