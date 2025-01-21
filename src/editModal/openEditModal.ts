@@ -9,7 +9,7 @@ export function openEditModal(contact: Contact): void {
   const vacancyInput = document.getElementById("editVacancy") as HTMLInputElement;
   const phoneInput = document.getElementById("editPhone") as HTMLInputElement;
   const saveButton = document.getElementById("saveButton") as HTMLButtonElement;
-  const closeButton = document.querySelector(".close") as HTMLElement;
+  const closeButton = document.getElementById("closeEdit") as HTMLDialogElement;
 
   nameInput.value = contact.name;
   vacancyInput.value = contact.vacancy;

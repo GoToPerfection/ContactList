@@ -4,20 +4,10 @@ import { openEditModal } from "../editModal/openEditModal.ts";
 import { deleteContact } from "./deleteContact.ts";
 
 export function searchContacts(): void {
-  const modal = document.getElementById("myModal") as HTMLDialogElement;
-  const closeButton = document.getElementById("closeSearch") as HTMLElement;
   const searchInput = document.getElementById("searchInput") as HTMLInputElement;
-  const query = searchInput.value.toLowerCase();
   const searchResults = document.getElementById("searchResults") as HTMLElement;
+  const query = searchInput.value.toLowerCase();
   searchResults.innerHTML = "";
-
-  modal.showModal();
-
-  closeButton.addEventListener("click", () => {
-    modal.close();
-    searchInput.value = "";
-    searchResults.innerHTML = "";
-  });
 
   const results = contacts.filter(
     (contact) =>
